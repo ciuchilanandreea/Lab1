@@ -12,9 +12,30 @@ public class MainFrame extends JFrame {
  setDefaultCloseOperation(EXIT_ON_CLOSE);
 
  canvas = new DrawingPanel(this);
-
  add(canvas, CENTER);
 
  pack();
  }
 }
+
+public class ConfigPanel extends JPanel {
+ final MainFrame frame;
+ JLabel label; 
+ JSpinner sidesField;
+ JComboBox colorCombo;
+
+ public ConfigPanel(MainFrame frame) {
+ this.frame = frame;
+ init();
+ }
+ 
+ private void init() {
+ sidesLabel = new JLabel("Number of sides:");
+ sidesField = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
+ sidesField.setValue(6); 
+ add(sidesLabel); 
+ add(sidesField);
+ add(colorCombo);
+ }
+}
+
